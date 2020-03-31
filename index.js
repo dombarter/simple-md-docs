@@ -9,10 +9,10 @@ const {mdToPdf} = require('md-to-pdf')
 
 // Get the config path
 let configPath
-try {
-    configPath = program.parse(process.argv).args[0]
-} catch (e) { // No argument was given
-    console.log("There was an error.")
+configPath = program.parse(process.argv).args[0]
+if (!configPath) {
+    console.log("No config file location was specified, using default location.")
+    configPath = "config.json"
 }
 
 // Open the config file
@@ -43,8 +43,8 @@ try {
         throw "error"
     }
 } catch (e) {
-    console.error("Your config file is missing a 'markdown' folder.")
-    return
+    console.log("No 'markdown' location was specified, using default location.")
+    MARKDOWN_LOCATION = "markdown/"
 }
 
 let SECTIONS
