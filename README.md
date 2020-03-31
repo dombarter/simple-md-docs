@@ -1,6 +1,6 @@
 # simple-md-docs
  
-A simple command-line tool to create a sectioned pdf from a number of a markdown files.
+A simple command-line tool to create a sectioned pdf from a number of markdown files.
 
 ## Installation
 
@@ -17,7 +17,24 @@ You must create a JSON config file which specifies the following:
 * Folder location of the markdown files (markdown)
 * Array of sections (sections)
 
-
+Example config file:
+```
+{
+    "output":"./example/output.pdf",
+    "markdown":"./markdown/",
+    "sections": [
+        {
+            "name": "Introduction",
+            "src": "section1.md"
+        },
+        {
+            "name": "Part 2",
+            "src": "section2.md"
+        }
+    ]
+}
+```
+Note: The name key is not required, just can be helpful when writing large documents. 
 
 ## Creating the pdf
 

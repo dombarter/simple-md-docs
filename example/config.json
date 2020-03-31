@@ -1,6 +1,6 @@
 {
-    "output":"output.pdf",
-    "markdown":"markdown/",
+    "output":"./example/output.pdf",
+    "markdown":"./markdown/",
     "sections": [
         {
             "name": "Introduction",
