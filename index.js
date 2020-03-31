@@ -2,6 +2,7 @@
 
 "use strict"
 
+// Dependencies
 const program = require('commander')
 const fs = require('fs')
 const path = require('path')
@@ -108,7 +109,8 @@ const main = async () => {
     // Setting the pdf options
 
     const CSS_PATH = path.join(await findDir(), "./github-markdown-css/github-markdown.css")
-    const CSS = fs.readFileSync(CSS_PATH).toString()
+    console.log("Path =>", CSS_PATH)
+    const CSS = fs.readFileSync(CSS_PATH)
     const FOOTER = 
     `
     <style>
