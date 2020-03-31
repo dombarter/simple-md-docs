@@ -22,5 +22,8 @@
     "github-markdown-css": "^4.0.0",
     "md-to-pdf": "^3.0.1",
     "path": "^0.12.7"
+  },
+  "bin": {
+    "simple-md-docs": "index.js"
   }
 }
