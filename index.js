@@ -110,15 +110,19 @@ const main = async () => {
     let CSS
     try {
         CSS_PATH = path.join(await findDir(), "./simple-md-docs/github.css")
-        CSS = fs.readFileSync(CSS_PATH)
+        console.log("Path ->", CSS_PATH)
+        CSS = fs.readFileSync(CSS_PATH).toString()
     } catch (e) {
         try {
             CSS_PATH = path.join(await findDir(), "../github.css")
-            CSS = fs.readFileSync(CSS_PATH)
-        } catch (e) {
+            console.log("Path ->", CSS_PATH)
+            CSS = fs.readFileSync(CSS_PATH).toString()
+        } catch (e2) {
+            console.log(e2)
             console.log("You seem to have a corrupted install. Try installing this package again.")
         }
     }
+    console.log("CSS path found")
     
     const FOOTER = 
     `
