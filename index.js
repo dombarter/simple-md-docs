@@ -96,9 +96,9 @@ const FOOTER =
     ${CSS}
 </style>
 <div class="markdown-body" style="width:100%;text-align:center;margin-bottom:12px;">
-    <h6>
+    <p>
         <span class="pageNumber">
-    </h6>
+    </p>
 </div>
 `
 
