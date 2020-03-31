@@ -90,7 +90,7 @@ mdContent = mdContent.join("\n")
 mdContent = `<div class="markdown-body">\n\n` + mdContent + `\n\n</div>`
 
 // Setting the pdf options
-const CSS_PATH = path.join(prcoess.cwd(), "../github-markdown-css/github-markdown.css")
+const CSS_PATH = path.join(process.cwd(), "../github-markdown-css/github-markdown.css")
 const CSS = fs.readFileSync(CSS_PATH).toString()
 const FOOTER = 
 `
