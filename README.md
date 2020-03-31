@@ -52,3 +52,10 @@ The default style used for both the markdown and the code highlighting is the Gi
 All pdfs come with page numbers automatically inserted. 
 
 For each section you specify, the next section will start on a new page. 
+
+## Updating the css
+
+To update the css file run:
+```
+npm run update
+```

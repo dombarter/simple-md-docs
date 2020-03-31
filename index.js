@@ -8,7 +8,6 @@ const fs = require('fs')
 const path = require('path')
 const {mdToPdf} = require('md-to-pdf')
 const {exec} = require("child_process")
-const gh = require("github-markdown-css")
 
 // Locating the installed directory
 const findDir = () => {
@@ -107,10 +106,20 @@ const main = async () => {
     mdContent = `<div class="markdown-body">\n\n` + mdContent + `\n\n</div>`
 
     // Setting the pdf options
-
-    const CSS_PATH = path.join(await findDir(), "./github-markdown-css/github-markdown.css")
-    console.log("Path =>", CSS_PATH)
-    const CSS = fs.readFileSync(CSS_PATH)
+    let CSS_PATH
+    let CSS
+    try {
+        CSS_PATH = path.join(await findDir(), "./simple-md-docs/github.css")
+        CSS = fs.readFileSync(CSS_PATH)
+    } catch (e) {
+        try {
+            CSS_PATH = path.join(await findDir(), "../github.css")
+            CSS = fs.readFileSync(CSS_PATH)
+        } catch (e) {
+            console.log("You seem to have a corrupted install. Try installing this package again.")
+        }
+    }
+    
     const FOOTER = 
     `
     <style>
