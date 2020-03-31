@@ -32,7 +32,7 @@ Example config file:
     ]
 }
 ```
-Note: All file paths are relative to the location of the config file.a
+Note: All file paths are relative to the location of the config file.
 
 ## Creating the pdf
 
