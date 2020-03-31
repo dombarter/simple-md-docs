@@ -6,7 +6,8 @@ const program = require('commander')
 const fs = require('fs')
 const path = require('path')
 const {mdToPdf} = require('md-to-pdf')
-const {exec} = require("child_process");
+const {exec} = require("child_process")
+const gh = require("github-markdown-css")
 
 // Locating the installed directory
 const findDir = () => {
