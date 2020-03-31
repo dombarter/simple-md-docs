@@ -1,0 +1,14 @@
+{
+    "output":"output.pdf",
+    "markdown":"markdown/",
+    "sections": [
+        {
+            "name": "Introduction",
+            "src": "section1.md"
+        },
+        {
+            "name": "Part 2",
+            "src": "section2.md"
+        }
+    ]
+}
