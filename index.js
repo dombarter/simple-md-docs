@@ -93,7 +93,8 @@ const main = async () => {
     mdContent = `<div class="markdown-body">\n\n` + mdContent + `\n\n</div>`
 
     // Setting the pdf options
-    const CSS_PATH = "./github.css"
+    const CSS_PATH = path.join(__dirname, "./github.css")
+    console.log("Path ->", CSS_PATH)
     const CSS = fs.readFileSync(CSS_PATH).toString()
     const FOOTER = 
     `
