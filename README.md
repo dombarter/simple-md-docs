@@ -20,21 +20,19 @@ You must create a JSON config file which specifies the following:
 Example config file:
 ```
 {
-    "output":"./example/output.pdf",
+    "output":"./output.pdf",
     "markdown":"./markdown/",
     "sections": [
         {
-            "name": "Introduction",
             "src": "section1.md"
         },
         {
-            "name": "Part 2",
             "src": "section2.md"
         }
     ]
 }
 ```
-Note: The name key is not required, just can be helpful when writing large documents. 
+Note: All file paths are relative to the location of the config file.a
 
 ## Creating the pdf
 
@@ -50,5 +48,7 @@ simple-md-docs ./config.json
 ## Other notes
 
 The default style used for both the markdown and the code highlighting is the Github styles. If you wish to change this please feel free to fork your own version. 
+
 All pdfs come with page numbers automatically inserted. 
+
 For each section you specify, the next section will start on a new page. 

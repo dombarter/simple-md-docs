@@ -59,19 +59,12 @@ try {
 // Attempt to open markdown files
 let mdContent = []
 for (const file of SECTIONS) {
-    // First file open attempt
     const src = path.join(configPath, "../", MARKDOWN_LOCATION, file.src)
     try {
         mdContent.push(fs.readFileSync(src).toString())
     } catch (e) {
-        // Second file open attempt
-        const src = path.join(MARKDOWN_LOCATION, file.src)
-        try {
-            mdContent.push(fs.readFileSync(src).toString())
-        } catch (e) {
-            console.log(`Unable to open ${file.src}.`)
-            return
-        }
+        console.log(`Unable to open ${file.src}.`)
+        return
     }
 }
 
@@ -114,7 +107,7 @@ const INPUT = {
 }
 const OPTIONS = {
     highlight_style: "github",
-    dest: OUTPUT_FILE,
+    dest: path.join(configPath, "../", OUTPUT_FILE),
     stylesheet: [
         "./node_modules/github-markdown-css/github-markdown.css",
     ],
