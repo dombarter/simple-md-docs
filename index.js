@@ -90,7 +90,7 @@ mdContent = mdContent.join("\n")
 mdContent = `<div class="markdown-body">\n\n` + mdContent + `\n\n</div>`
 
 // Setting the pdf options
-const CSS_PATH = path.join(__dirname, "./node_modules/github-markdown-css/github-markdown.css")
+const CSS_PATH = path.join(prcoess.cwd(), "../github-markdown-css/github-markdown.css")
 const CSS = fs.readFileSync(CSS_PATH).toString()
 const FOOTER = 
 `
@@ -111,7 +111,7 @@ const OPTIONS = {
     highlight_style: "github",
     dest: path.join(configPath, "../", OUTPUT_FILE),
     stylesheet: [
-        "./node_modules/github-markdown-css/github-markdown.css",
+        CSS_PATH,
     ],
     pdf_options: {
         format: "A4",
