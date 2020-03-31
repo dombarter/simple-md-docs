@@ -7,19 +7,6 @@ const program = require('commander')
 const fs = require('fs')
 const path = require('path')
 const {mdToPdf} = require('md-to-pdf')
-const {exec} = require("child_process")
-
-// Locating the installed directory
-const findDir = () => {
-    return new Promise((resolve, reject) => {
-        exec("npm root", (err, stout, sterr) => {
-            if (err || sterr) {
-                reject()
-            } 
-            resolve(stout)
-        })
-    })
-}
 
 const main = async () => {
 
@@ -106,24 +93,8 @@ const main = async () => {
     mdContent = `<div class="markdown-body">\n\n` + mdContent + `\n\n</div>`
 
     // Setting the pdf options
-    let CSS_PATH
-    let CSS
-    try {
-        CSS_PATH = path.join(await findDir(), "./simple-md-docs/github.css")
-        console.log("Path ->", CSS_PATH)
-        CSS = fs.readFileSync(CSS_PATH).toString()
-    } catch (e) {
-        try {
-            CSS_PATH = path.join(await findDir(), "../github.css")
-            console.log("Path ->", CSS_PATH)
-            CSS = fs.readFileSync(CSS_PATH).toString()
-        } catch (e2) {
-            console.log(e2)
-            console.log("You seem to have a corrupted install. Try installing this package again.")
-        }
-    }
-    console.log("CSS path found")
-    
+    const CSS_PATH = "./github.css"
+    const CSS = fs.readFileSync(CSS_PATH).toString()
     const FOOTER = 
     `
     <style>
