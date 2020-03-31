@@ -14,7 +14,6 @@ const main = async () => {
     let configPath
     configPath = program.parse(process.argv).args[0]
     if (!configPath) {
-        console.log("No config file location was specified, using default location.")
         configPath = "config.json"
     }
 
@@ -46,7 +45,6 @@ const main = async () => {
             throw "error"
         }
     } catch (e) {
-        console.log("No 'markdown' location was specified, using default location.")
         MARKDOWN_LOCATION = "markdown/"
     }
 
@@ -94,7 +92,6 @@ const main = async () => {
 
     // Setting the pdf options
     const CSS_PATH = path.join(__dirname, "./github.css")
-    console.log("Path ->", CSS_PATH)
     const CSS = fs.readFileSync(CSS_PATH).toString()
     const FOOTER = 
     `
