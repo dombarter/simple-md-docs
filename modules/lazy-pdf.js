@@ -22,7 +22,7 @@ module.exports = async (markdownFile) => {
     // Create our own config file
     fs.writeFileSync(path.join(process.cwd(), `tmp-${TIMESTAMP}.json`),JSON.stringify({
         output: filename,
-        markdown: "./",
+        markdown: path.join(markdownFile, "../"),
         sections: [
             path.parse(markdownFile).base
         ]

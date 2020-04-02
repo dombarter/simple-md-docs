@@ -31,7 +31,6 @@ const handleCreate = async (configFile) => {
 
 const handleLazy = async (markdownFile) => {
 
-    markdownFile = path.join(process.cwd(), markdownFile)
     await lazyPDF(markdownFile)
     process.exit(1)
 

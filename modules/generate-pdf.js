@@ -26,9 +26,12 @@ module.exports = async (configPath) => {
     terminal.start(parseResult.output)
 
     // Parse the markdown
+    const markdownFolder = path.join(configPath, "../", parseResult.markdown)
+    console.log("Config file =>", configPath)
+    console.log("Markdown folder =>", markdownFolder)
     const markdownResult = await parseMarkdown(
         configPath,
-        path.join(configPath, "../", parseResult.markdown),
+        markdownFolder,
         parseResult.sections
     )
     if (!markdownResult) {
