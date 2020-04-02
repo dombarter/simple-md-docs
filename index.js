@@ -5,6 +5,7 @@
 // Dependencies
 const program = require('commander')
 const generatePDF = require("./modules/generate-pdf")
+const lazyPDF = require("./modules/lazy-pdf")
 const createTemplate = require("./modules/init")
 const {version} = require("./package.json")
 
@@ -43,16 +44,12 @@ const main = async () => {
     // Lazy function
     program
     .command('lazy <markdownFile>')
-    .description('create a pdf off a single markdown file without the need for a config file.')
+    .description('create a pdf off a single markdown file without the need for a config file. pdf name matches markdown file name.')
     .option('-w, --watch', 'generate a new pdf whenever changes are made to the markdown file.')
     .action(async (markdownFile, cmdObj) => {
 
-        if (cmdObj.watch) {
-            console.log("watching")
-        } else {
-            await generatePDF(configFile)
-            process.exit(1)
-        }
+        await lazyPDF(markdownFile)
+        process.exit(1)
 
     })
 
