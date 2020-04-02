@@ -58,9 +58,11 @@ module.exports = async (filePath) => {
         return false
     }
 
-    return {
+    const output = {
         output: outputFile,
         markdown: markdownFolder,
         sections: sections
     }
+
+    return output
 }

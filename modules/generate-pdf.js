@@ -13,9 +13,8 @@ module.exports = async (configPath) => {
 
     // Set the config path default value
     if (!configPath) {
-        configPath = path.join("./config.json")
+        configPath = path.join(process.cwd(), "./config.json")
     }
-    configPath = path.join(__dirname, "../", configPath)
 
     // Parse the config file
     const parseResult = await parseConfig(configPath)
@@ -29,7 +28,7 @@ module.exports = async (configPath) => {
     // Parse the markdown
     const markdownResult = await parseMarkdown(
         configPath,
-        parseResult.markdown,
+        path.join(configPath, "../", parseResult.markdown),
         parseResult.sections
     )
     if (!markdownResult) {

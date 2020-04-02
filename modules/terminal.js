@@ -39,6 +39,6 @@ module.exports.finish = async () => {
     clearInterval(interval)
     process.stdout.clearLine()
     process.stdout.cursorTo(0)
-    console.log("PDF has been generated!")
+    process.stdout.write("PDF has been generated!")
 
 }

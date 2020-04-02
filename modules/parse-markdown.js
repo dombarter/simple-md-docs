@@ -13,7 +13,7 @@ module.exports = async (configPath, markdownFolder, sections) => {
     let mdContent = []
     for (const file of sections) {
 
-        const src = path.join(configPath, "../", markdownFolder, file)
+        const src = path.join(markdownFolder, file)
         try {
 
             mdContent.push(fs.readFileSync(src).toString())

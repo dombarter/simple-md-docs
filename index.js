@@ -8,6 +8,34 @@ const generatePDF = require("./modules/generate-pdf")
 const lazyPDF = require("./modules/lazy-pdf")
 const createTemplate = require("./modules/init")
 const {version} = require("./package.json")
+const path = require("path")
+
+const handleInit = async (dir) => {
+
+    if (!dir) {
+        dir = "./"
+    }
+    dir = path.join(process.cwd(), dir)
+    await createTemplate(dir)
+    process.exit(1)
+
+}
+
+const handleCreate = async (configFile) => {
+
+    configFile = path.join(process.cwd(), configFile)
+    await generatePDF(configFile)
+    process.exit(1)
+
+}
+
+const handleLazy = async (markdownFile) => {
+
+    markdownFile = path.join(process.cwd(), markdownFile)
+    await lazyPDF(markdownFile)
+    process.exit(1)
+
+}
 
 const main = async () => {
 
@@ -15,43 +43,19 @@ const main = async () => {
     program
     .command('init [dir]')
     .description('create a template config.json and markdown folder in a given location. (default: \'./\')')
-    .action(async (dir) => {
-
-        if (!dir) {
-            dir = "./"
-        }
-        await createTemplate(dir)
-        process.exit(1)
-
-    })
+    .action(handleInit)
 
     // Create function
     program
     .command('create [configFile]')
     .description('create a pdf based off a provided config file. (default: \'./config.json\')')
-    .option('-w, --watch','generate a new pdf whenever changes are made to the config file or markdown folder.')
-    .action(async (configFile, cmdObj) => {
-
-        if (cmdObj.watch) {
-            console.log("watching")
-        } else {
-            await generatePDF(configFile)
-            process.exit(1)
-        }
-
-    })
+    .action(handleCreate)
 
     // Lazy function
     program
     .command('lazy <markdownFile>')
     .description('create a pdf off a single markdown file without the need for a config file. pdf name matches markdown file name.')
-    .option('-w, --watch', 'generate a new pdf whenever changes are made to the markdown file.')
-    .action(async (markdownFile, cmdObj) => {
-
-        await lazyPDF(markdownFile)
-        process.exit(1)
-
-    })
+    .action(handleLazy)
 
     program
     .version(version, '-v, --version', 'output the current version');
@@ -62,9 +66,3 @@ const main = async () => {
 }
 
 main()
-
-// Config file default
-// Watch function
-// Title page
-// Docs
-// Publish
