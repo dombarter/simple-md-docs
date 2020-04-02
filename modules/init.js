@@ -33,7 +33,7 @@ module.exports = async (folder) => {
     fs.writeFileSync(path.join(folder, "./config.json"), config)
 
     // Create markdown folder
-    fs.mkdirSync(path.join(folder, "./markdown"))
+    fs.mkdirSync(path.join(folder, "./markdown"), {recursive:true})
 
     // Create section1 & section2
     fs.writeFileSync(path.join(folder, "./markdown/section1.md"), markdown1)
