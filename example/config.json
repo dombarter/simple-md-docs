@@ -2,11 +2,7 @@
     "output":"output.pdf",
     "markdown":"markdown/",
     "sections": [
-        {
-            "src": "section1.md"
-        },
-        {
-            "src": "section2.md"
-        }
+        "section1.md",
+        "section2.md"
     ]
 }
