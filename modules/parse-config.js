@@ -6,12 +6,11 @@
 
 // Dependencies
 const fs = require('fs')
-const path = require('path')
 
 module.exports = async (filePath) => {
 
     // Create variables to hold the config details
-    const configPath = path.join("../", filePath)
+    const configPath = filePath
     let config
     let outputFile
     let markdownFolder
@@ -39,7 +38,7 @@ module.exports = async (filePath) => {
     }
 
     // Try find the markdown folder
-    markdownFolder = config.markdownFolder
+    markdownFolder = config.markdown
     if (markdownFolder === undefined) {
         console.error("Your config file is missing a 'markdown' folder.")
         return false

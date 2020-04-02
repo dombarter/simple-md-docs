@@ -17,3 +17,10 @@ const main = async () => {
 }
 
 main()
+
+// Config file
+// Init function
+// Watch function
+// Title page
+// Docs
+// Publish

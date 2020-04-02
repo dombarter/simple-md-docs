@@ -2,6 +2,10 @@
  * Used to open all the markdown files and output the final markdown
  */
 
+// Dependencies
+const fs = require('fs')
+const path = require("path")
+
 module.exports = async (configPath, markdownFolder, sections) => {
 
     // Attempt to open markdown files

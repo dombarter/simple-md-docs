@@ -12,8 +12,9 @@ module.exports = async (configPath) => {
 
     // Set the config path default value
     if (!configPath) {
-        configPath = path.join("../", "./config.json")
+        configPath = path.join("./config.json")
     }
+    configPath = path.join(__dirname, "../", configPath)
 
     // Parse the config file
     const parseResult = await parseConfig(configPath)
