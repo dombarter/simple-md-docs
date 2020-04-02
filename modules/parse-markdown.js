@@ -12,13 +12,9 @@ module.exports = async (configPath, markdownFolder, sections) => {
     // Attempt to open markdown files
     let mdContent = []
 
-    console.log("v2 Markdown folder =>", markdownFolder)
-
     for (const file of sections) {
 
-        console.log("File =>", file)
         const src = path.join(markdownFolder, file)
-        console.log("Src =>", src)
         try {
 
             mdContent.push(fs.readFileSync(src).toString())
