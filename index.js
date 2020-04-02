@@ -18,7 +18,8 @@ const main = async () => {
 
 main()
 
-// Config file
+// Loader
+// Config file default
 // Init function
 // Watch function
 // Title page

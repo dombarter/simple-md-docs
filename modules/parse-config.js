@@ -6,6 +6,7 @@
 
 // Dependencies
 const fs = require('fs')
+const terminal = require("./terminal")
 
 module.exports = async (filePath) => {
 
@@ -23,7 +24,7 @@ module.exports = async (filePath) => {
 
     } catch (e) {
 
-        console.error("We couldn't find a config file at that location.")
+        terminal.error("We couldn't find a config file at that location or the config file you provided is not valid JSON.")
         return false
 
     }
@@ -33,27 +34,27 @@ module.exports = async (filePath) => {
     // Try find the output file
     outputFile = config.output
     if (outputFile === undefined) {
-        console.error("Your config file is missing an 'output' location.")
+        terminal.error("Your config file is missing an 'output' location.")
         return false
     }
 
     // Try find the markdown folder
     markdownFolder = config.markdown
     if (markdownFolder === undefined) {
-        console.error("Your config file is missing a 'markdown' folder.")
+        terminal.error("Your config file is missing a 'markdown' folder.")
         return false
     }
 
     // Try find the sections array
     sections = config.sections
     if (sections === undefined) {
-        console.error("Your config file has no 'sections' specified.")
+        terminal.error("Your config file has no 'sections' specified.")
         return false
     }
 
     // Validate that the sections contains items
     if (sections.length < 1) {
-        console.error("Your 'sections' array doesn't contain any valid sections.")
+        terminal.error("Your 'sections' array doesn't contain any valid sections.")
         return false
     }
 

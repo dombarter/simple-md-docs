@@ -5,6 +5,7 @@
 const parseConfig = require("./parse-config")
 const parseMarkdown = require("./parse-markdown")
 const parseOptions = require("./parse-pdf-options")
+const terminal = require("./terminal")
 const path = require("path")
 const {mdToPdf} = require("md-to-pdf")
 
@@ -21,6 +22,9 @@ module.exports = async (configPath) => {
     if (!parseResult) {
         return false
     }
+
+    // Begin terminal output
+    terminal.start(parseResult.output)
 
     // Parse the markdown
     const markdownResult = await parseMarkdown(
@@ -53,6 +57,7 @@ module.exports = async (configPath) => {
     }
 
     // Final result
+    terminal.finish()
     return true
 
 }

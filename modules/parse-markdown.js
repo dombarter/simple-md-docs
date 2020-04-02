@@ -5,6 +5,7 @@
 // Dependencies
 const fs = require('fs')
 const path = require("path")
+const terminal = require("./terminal")
 
 module.exports = async (configPath, markdownFolder, sections) => {
 
@@ -19,7 +20,7 @@ module.exports = async (configPath, markdownFolder, sections) => {
 
         } catch (e) {
 
-            console.error(`Unable to open ${file}.`)
+            terminal.error(`Unable to open ${file}.`)
             return false
 
         }
