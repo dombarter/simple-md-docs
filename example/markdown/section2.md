@@ -1,5 +1,3 @@
-# This is section 2!
+# Section 2
 
-Welcome to section 2
-
-(Notice how this section is on a new page!)
+Welcome to section 2!

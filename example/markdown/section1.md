@@ -1,5 +1,3 @@
-# This is section 1!
+# Section 1
 
-Welcome to section 1
-
-:)
+Welcome to section 1!
