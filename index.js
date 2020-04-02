@@ -23,6 +23,9 @@ const handleInit = async (dir) => {
 
 const handleCreate = async (configFile) => {
 
+    if (!configFile) {
+        configFile = "config.json"
+    }
     configFile = path.join(process.cwd(), configFile)
     await generatePDF(configFile)
     process.exit(1)
