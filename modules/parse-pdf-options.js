@@ -24,9 +24,10 @@ module.exports = async (configPath, outputFile, mdContent) => {
     const INPUT = {
         content: mdContent
     }
+    const OUTPUT = path.join(configPath, "../", outputFile)
     const OPTIONS = {
         highlight_style: "github",
-        dest: path.join(configPath, "../", outputFile),
+        dest: OUTPUT,
         stylesheet: [
             CSS_PATH,
         ],
@@ -38,6 +39,9 @@ module.exports = async (configPath, outputFile, mdContent) => {
             footerTemplate: FOOTER
         }
     }
+
+    // try and make the output folder
+    fs.mkdirSync(OUTPUT.replace(path.parse(OUTPUT).base, ""), {recursive: true})
 
     // Return the parsed options
     return {
