@@ -28,7 +28,8 @@ module.exports = async (configPath, markdownFolder, sections) => {
     }
 
     // Add page breaks to markdown
-    const PAGE_BREAK = `\n<div style="page-break-after:always;"></div>`
+    const PAGE_BREAK = `\n<br><div style="page-break-after:always;"></div>`
+
     for (let i = 0; i < mdContent.length; i++) {
 
         let md = mdContent[i]
