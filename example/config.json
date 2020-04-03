@@ -1,8 +1,0 @@
-{
-    "output":"output.pdf",
-    "markdown":"markdown/",
-    "sections": [
-        "section1.md",
-        "section2.md"
-    ]
-}

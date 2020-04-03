@@ -21,8 +21,11 @@ module.exports = async (configPath, outputFile, mdContent) => {
         </p>
     </div>
     `
+
+    const STYLE = "\n<style>code {white-space : pre-wrap !important;}</style>\n"
+
     const INPUT = {
-        content: mdContent
+        content: STYLE + mdContent
     }
     const OUTPUT = path.join(configPath, "../", outputFile)
     const OPTIONS = {

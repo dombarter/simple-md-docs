@@ -2,6 +2,11 @@
  
 A simple command-line tool to create a sectioned pdf from a number of markdown files.
 
+
+```
+$ hello world hello world hello world hello world hello world hello world hello world hello world hello world hello world hello world hello world hello world hello world hello world hello world hello world hello world hello world hello world hello world hello world hello world hello world hello world hello world hello world 
+```
+
 ## Installation
 
 To install this tool:
