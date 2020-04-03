@@ -43,7 +43,7 @@ module.exports = async (configPath, outputFile, mdContent) => {
         }
     }
 
-    // try and make the output folder
+    // Try and make the output folder
     fs.mkdirSync(OUTPUT.replace(path.parse(OUTPUT).base, ""), {recursive: true})
 
     // Return the parsed options
