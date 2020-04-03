@@ -1,7 +1,7 @@
 /**
  * Used to display the current error on the screen
  */
-
+const readline = require("readline")
 let creationStarted = false
 let interval
 
@@ -14,8 +14,8 @@ module.exports.start = async (outputFile) => {
     let dots = 0
 
     interval = setInterval(() => {
-        process.stdout.clearLine()
-        process.stdout.cursorTo(0)
+        readline.clearLine(process.stdout, 0)
+        readline.cursorTo(process.stdout, 0, null)
         process.stdout.write(OUTPUT_MESSAGE + ".".repeat(dots))
         dots = (dots + 1) % 4
     }, 250)
@@ -26,8 +26,8 @@ module.exports.error = async (error) => {
 
     creationStarted = false
     clearInterval(interval)
-    process.stdout.clearLine()
-    process.stdout.cursorTo(0)
+    readline.clearLine(process.stdout, 0)
+    readline.cursorTo(process.stdout, 0, null)
     console.error(`ERROR: ${error}`)
 
 }
@@ -37,8 +37,8 @@ module.exports.finish = async () => {
 
     creationStarted = false
     clearInterval(interval)
-    process.stdout.clearLine()
-    process.stdout.cursorTo(0)
+    readline.clearLine(process.stdout, 0)
+    readline.cursorTo(process.stdout, 0, null)
     process.stdout.write("PDF has been generated!")
 
 }
