@@ -6,7 +6,6 @@
 const fs = require('fs')
 const path = require("path")
 const terminal = require("./terminal")
-const marked = require("marked")
 
 module.exports = async (configPath, markdownFolder, sections) => {
 
@@ -28,14 +27,16 @@ module.exports = async (configPath, markdownFolder, sections) => {
         }
     }
 
+    const PAGE_BREAK = `<br><div style="page-break-before: always;"></div>`
+
     for (let i = 0; i < mdContent.length; i++) {
 
-        mdContent[i] = marked(mdContent[i])
+        // mdContent[i] = marked(mdContent[i])
         if (i+1 < mdContent.length) {
 
             if (mdContent[i+1] !== "") {
 
-                mdContent[i] = `${mdContent[i]}<div style="page-break-before: always;"></div>`
+                mdContent[i] = mdContent[i] + PAGE_BREAK
 
             } 
 
@@ -46,8 +47,7 @@ module.exports = async (configPath, markdownFolder, sections) => {
     // Merging all markdown into one file
     mdContent = mdContent.join("\n")
     // mdContent = mdContent.replace( /[\r\n]+/gm, "")
-    mdContent = `<div class="markdown-body">` + mdContent + `</div>`
-    
+    mdContent = `<div class="markdown-body">\n\n` + mdContent + `\n\n</div>`
     // Returning the mdContent
     return mdContent
 
