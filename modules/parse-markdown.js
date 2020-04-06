@@ -27,7 +27,7 @@ module.exports = async (configPath, markdownFolder, sections) => {
         }
     }
 
-    const PAGE_BREAK = `<br><div style="page-break-before: always;"></div>`
+    const PAGE_BREAK = `\n<br><div style="page-break-before: always;"></div>`
 
     for (let i = 0; i < mdContent.length; i++) {
 
