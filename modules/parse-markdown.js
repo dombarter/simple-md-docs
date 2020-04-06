@@ -45,7 +45,7 @@ module.exports = async (configPath, markdownFolder, sections) => {
 
     // Merging all markdown into one file
     mdContent = mdContent.join("\n")
-    mdContent = mdContent.replace( /[\r\n]+/gm, "")
+    // mdContent = mdContent.replace( /[\r\n]+/gm, "")
     mdContent = `<div class="markdown-body">` + mdContent + `</div>`
     
     // Returning the mdContent
