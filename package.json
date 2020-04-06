@@ -1,6 +1,6 @@
 {
   "name": "simple-md-docs",
-  "version": "1.2.10",
+  "version": "1.2.11",
   "description": "A simple command-line tool to create a sectioned pdf from a number of markdown files.",
   "main": "index.js",
   "scripts": {
